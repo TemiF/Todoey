@@ -52,7 +52,6 @@ class ToDoListViewController: UITableViewController {
         } else {
             cell.accessoryType = .none
         }
-        
         return cell
         
     }
@@ -89,7 +88,7 @@ class ToDoListViewController: UITableViewController {
             let newItem = Item()
             newItem.title = textField.text!
             
-            self.itemArray.append(newItems)
+            self.itemArray.append(newItem)
             
             self.defaults.set(self.itemArray, forKey: "ToDoListArray")
             
