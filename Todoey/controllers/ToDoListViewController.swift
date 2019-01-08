@@ -33,10 +33,7 @@ class ToDoListViewController: UITableViewController {
         newItem3.title = "destroy demos"
         itemArray.append(newItem3)
         
-       // if let items = defaults.array(forKey: "ToDoListArray") as? [String] {
-        //itemArray = items
-   // }
-    
+      loadItems()
     }
 
     //MARK - TABLEVIEW DATASOURCE METHODS
@@ -121,7 +118,12 @@ class ToDoListViewController: UITableViewController {
     }
     
     func loadItems() {
-       let data = try? Data(contentsOf: dataFilePath!)
+        if let data = try? Data(contentsOf: dataFilePath!){
+            
+        }
     }
 }
+
+
+
 
