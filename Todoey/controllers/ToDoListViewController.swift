@@ -9,14 +9,10 @@
 import UIKit
 import CoreData
 
-class ToDoListViewController: UITableViewController {
+class ToDoListViewController: UITableViewController, UISearchBarDelegate {
 
     var itemArray = [Item]()
-   
-    //let defaults = UserDefaults.standard
-    
-   // let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
-    
+
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
@@ -24,7 +20,8 @@ class ToDoListViewController: UITableViewController {
         
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
-      loadItems()
+      
+        loadItems()
     }
 
     //MARK - TABLEVIEW DATASOURCE METHODS
@@ -53,7 +50,10 @@ class ToDoListViewController: UITableViewController {
    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //print(itemArray[indexPath.row])
     
-    itemArray[indexPath.row].done = !itemArray[indexPath.row].done
+       itemArray.remove(at: indexPath.row)
+       context.delete(itemArray[indexPath.row])
+    
+    // itemArray[indexPath.row].done = !itemArray[indexPath.row].done
     
     saveItems()
     
@@ -115,8 +115,11 @@ class ToDoListViewController: UITableViewController {
             print("Error fetching data from context \(error)")
         }
     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        <#code#>
+    }
   
     }
 
-
-
+// MARK SEARCH BAR METHODS
