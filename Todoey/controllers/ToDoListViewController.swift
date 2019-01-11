@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ToDoListViewController: UITableViewController, UISearchBarDelegate {
+class ToDoListViewController: UITableViewController {
 
     var itemArray = [Item]()
 
@@ -20,8 +20,9 @@ class ToDoListViewController: UITableViewController, UISearchBarDelegate {
         
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
-      
-        loadItems()
+        let request : NSFetchRequest<Item> = Item.fetchRequest()
+        
+        loadItems(with: request)
     }
 
     //MARK - TABLEVIEW DATASOURCE METHODS
@@ -107,8 +108,8 @@ class ToDoListViewController: UITableViewController, UISearchBarDelegate {
         self.tableView.reloadData()
     }
     
-    func loadItems() {
-        let request :NSFetchRequest<Item> = Item.fetchRequest()
+    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()) {
+        
         do {
             itemArray = try context.fetch(request)
         } catch {
@@ -116,10 +117,25 @@ class ToDoListViewController: UITableViewController, UISearchBarDelegate {
         }
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        <#code#>
-    }
-  
-    }
+}
 
 // MARK SEARCH BAR METHODS
+
+extension ToDoListViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+         let request :NSFetchRequest<Item> = Item.fetchRequest()
+        
+        request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+        
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        
+        loadItems(with: request)
+
+
+    }
+    
+    }
+    
+
+
