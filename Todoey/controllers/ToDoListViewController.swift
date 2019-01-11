@@ -77,7 +77,9 @@ class ToDoListViewController: UITableViewController {
             //what happens next
     
             let newItem = Item(context: self.context)
+            
             newItem.title = textField.text!
+            
             newItem.done = false
             
             self.itemArray.append(newItem)
@@ -135,6 +137,7 @@ extension ToDoListViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
         if searchBar.text?.count == 0 {
             loadItems()
             
