@@ -12,6 +12,7 @@
 		EF328B7521C998B600535B68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF328B7321C998B600535B68 /* Main.storyboard */; };
 		EF328B7721C998B700535B68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF328B7621C998B700535B68 /* Assets.xcassets */; };
 		EF328B7A21C998B700535B68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF328B7821C998B700535B68 /* LaunchScreen.storyboard */; };
+		EF6A1A7021EFD79F00F17BE9 /* CategoryViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A1A6F21EFD79F00F17BE9 /* CategoryViewControllerTableViewController.swift */; };
 		EF94DC9A21E6A310005CAD0D /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF94DC9821E6A310005CAD0D /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		EF328B7621C998B700535B68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF328B7921C998B700535B68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF328B7B21C998B700535B68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF6A1A6F21EFD79F00F17BE9 /* CategoryViewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewControllerTableViewController.swift; sourceTree = "<group>"; };
 		EF94DC9921E6A310005CAD0D /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +79,7 @@
 		EFAA9A5221CD7CF0003ADE6F /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EF6A1A6F21EFD79F00F17BE9 /* CategoryViewControllerTableViewController.swift */,
 				EF328B7121C998B600535B68 /* ToDoListViewController.swift */,
 			);
 			path = controllers;
@@ -172,6 +175,7 @@
 			files = (
 				EF328B7221C998B600535B68 /* ToDoListViewController.swift in Sources */,
 				EF94DC9A21E6A310005CAD0D /* DataModel.xcdatamodeld in Sources */,
+				EF6A1A7021EFD79F00F17BE9 /* CategoryViewControllerTableViewController.swift in Sources */,
 				EF328B7021C998B600535B68 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,6 +12,12 @@ import CoreData
 class ToDoListViewController: UITableViewController {
 
     var itemArray = [Item]()
+    
+    var selectedCategory : Category? {
+        didSet{
+            loadItems()
+        }
+    }
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -22,7 +28,6 @@ class ToDoListViewController: UITableViewController {
         
         let request : NSFetchRequest<Item> = Item.fetchRequest()
         
-        loadItems(with: request)
     }
 
     //MARK - TABLEVIEW DATASOURCE METHODS
@@ -81,6 +86,8 @@ class ToDoListViewController: UITableViewController {
             newItem.title = textField.text!
             
             newItem.done = false
+            
+            newItem.parentCategory = self.selectedCategory
             
             self.itemArray.append(newItem)
             
